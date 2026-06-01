@@ -22,8 +22,10 @@ Everything below is a compressed working summary. The full corpus lives in this 
 | `ANALYSIS.md` | The full 15-section style breakdown with timestamped quotes. Use to look up an exact phrasing or check a pattern. |
 | `transcripts/INDEX.md` | Map of all 14 YouTube transcripts + 12 source decks with paired-talk links and a style-priority ranking. **Open this first** to pick the closest-fit reference talks for the topic. |
 | `transcripts/*.md` | The corpus itself. YouTube transcripts have `[mm:ss]` markers and capture what Jim actually said. Keynote decks (`*-keynote.md`) contain his presenter notes — the spoken narration in written form. |
+| `references/title-craft.md` | Distilled framework for titling talks, from swyx's *"Stop Writing Long Boring Titles"*. Six templates, weasel-word list, do/don't checklist. **Open when generating titles.** |
+| `references/accepted-talks.md` | Corpus of 34 AI Engineer Singapore titles + 20 AI Engineer Summit 2025 abstracts. Real talks that got into a real CFP. **Open when generating titles or abstracts** to pattern-match against precedent. |
 
-**Default reading on a fresh job:** `INDEX.md` first (pick 2-3 reference talks based on topic + slot length), then `ANALYSIS.md` sections 1, 5, 9, 14 (opening, demo, close, priority patterns), then skim the chosen reference transcripts for tone.
+**Default reading on a fresh job:** `INDEX.md` first (pick 2-3 reference talks based on topic + slot length), then `ANALYSIS.md` sections 1, 5, 9, 14 (opening, demo, close, priority patterns), then skim the chosen reference transcripts for tone. When titling or abstracting, also read `references/title-craft.md` and `references/accepted-talks.md`.
 
 ## Spoken vs written
 
@@ -122,6 +124,71 @@ Conspicuously absent across every talk — putting any of these in marks the scr
 - Deep theoretical detours
 - Generic AI-sounding phrases ("powerful tool", "leverage", "unlock")
 - Trailing summary that restates the recap
+
+## Title and abstract
+
+For CFP submissions, the title and abstract land before the talk does. Use the two reference files (`references/title-craft.md` + `references/accepted-talks.md`) as a binding pattern library. The framework below compresses both into one workflow.
+
+### When asked for a title
+
+Generate **8-12 candidates**, not one. The goal is range — different templates, different stakes, different lengths. Then pick.
+
+For each candidate, walk through swyx's six templates as a checklist:
+
+1. *{BENEFIT} without {DOWNSIDE}*
+2. *{OPINION}, don't {THING YOU DO}*
+3. *{POPULAR THING} IS DEAD* / *You Might Not Need {THING}*
+4. *The Rise of {THING}* / *The Unreasonable Effectiveness of {THING}*
+5. *Fundamentals of / How {THING} Really Works / Advanced {THING}*
+6. *{EXPERIENCE/SCALE} with {THING}*
+
+Then add **3-4 free-form candidates** that aren't from a template — bold-claim statements, naming-a-mental-model titles, period-stop punchlines. These tend to land hardest at AI Engineer venues (see *"Ship what's next"*, *"The Friction Worth Keeping"*, *"Voice AI is not a model issue."* in the accepted-talks corpus).
+
+**Filter each candidate against:**
+
+- Could the speaker say it out loud to a friend without flinching?
+- States an opinion or opens a real curiosity gap (not a rhetorical one)?
+- ≤ 8 words, ideally 5-6?
+- No banned weasel words: *leveraging, towards, navigating, empowering, unleashing, unlocking, revolutionizing*?
+- No colon (unless the colon is doing real work — usually it isn't)?
+- Words ≤ 3 syllables where possible?
+
+**Present the top 3 to the user**, each with: (a) the title, (b) which template/pattern it uses, (c) one sentence on what it commits the speaker to. Recommend one, with a one-line "why this over the others". Show the rejected candidates as a collapsible list — they're useful for the user to argue with.
+
+### When asked for an abstract
+
+Anchor on the strongest abstract shape observed in `references/accepted-talks.md`:
+
+1. **First sentence names the problem or stakes.** Not scene-setting. The reader should know within 15 words what's wrong and why it matters.
+2. **One concrete artifact, technique, or claim.** One. Not a survey. Name the thing the speaker built or learned.
+3. **25-50 words total** is the sweet spot. Many accepted abstracts are a single sentence.
+4. **Stakes language, not feature language.** *"safeguard these systems without stifling innovation"* (stakes) beats *"introduces a novel framework with new features"* (features).
+5. **Quote one phrase** the speaker is staking a claim on. The scare-quoted phrase becomes the takeaway people remember.
+6. **Target someone who is wrong.** *"Voice AI: Your Bot Isn't Special"* + *"reliable voice agents that navigate phone trees"* targets people who think their voice bot is special. Stating who's wrong is more activating than stating who's right.
+7. **Third person is the conference default**, but Jim's first-person voice is fine if the venue allows it — first-person at AI Engineer is contrarian-but-readable.
+
+**Default abstract structure (one short paragraph):**
+
+> *[Problem in 1 sentence, naming who's wrong or what's been missed.]* *[One sentence naming the concrete artifact, technique, or experiment.]* *[Optional: 1 sentence on the result or takeaway.]*
+
+**Length budget by venue.** Two distinct house styles in the corpus — pick the right one:
+
+| Venue family | Title shape | Abstract length | Closing move |
+|---|---|---|---|
+| **AI Engineer** (Singapore, World's Fair, Summit) | 3-7 words, period-stops, no colons | 25-50 words, often 1 sentence | Ends with the artifact / claim |
+| **NDC family** (Sydney, London, Oslo) | 7-12 words, colons tolerated, metaphor-heavy | 100-200 words, 2-3 paragraphs | Ends with audience takeaway *("You'll leave with…", "Whether you're X or Y…")* |
+| **Lightning talk** (5-10 min, any venue) | Same as venue, even shorter | 25-40 words, single sentence | Skip the takeaway close |
+| **Long-form workshop-flavoured** (40+ min) | Same as venue | 130-200 words | Multi-paragraph, explicit audience signposting |
+
+When in doubt, ask the user which venue. *"AI Engineer-style"* and *"NDC-style"* are working shorthand for the corpus split. If they don't know, default to AI Engineer style — terser is safer for a CFP committee.
+
+If the user asks for an abstract longer than 200 words, push back — that's a brochure, not an abstract.
+
+### Title-first workflow
+
+When the user provides a topic but no title, **draft the title before the abstract**. swyx's title-first rule: write the title, then reshape content to serve the promise. Titling after the fact produces weasel words. The abstract should *deliver on* whatever opinion the title states.
+
+If the user has a strong title already, work the abstract to match it — even if it means trimming claims that don't fit the title's promise.
 
 ## Drafting workflow
 
