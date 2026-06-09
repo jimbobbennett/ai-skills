@@ -92,6 +92,21 @@ Before starting a new topic folder, check `~/.research/` for an existing folder 
 ---
 ```
 
+## When `WebFetch` is blocked
+
+Some sources are reachable from a browser but return 403 / Cloudflare challenge / anti-bot blocks via `WebFetch`. Common offenders: `arstechnica.com`, `openai.com/index/*`, `reddit.com`, `news.ycombinator.com`, `x.com`, some Substack posts, archive.org for the same URLs. Hitting one of these is a *tool-level* block, not a general inaccessibility — the user can reach the page fine.
+
+Workflow when this happens:
+
+1. **Don't pretend the source is inaccessible in the writing.** "The launch page is inaccessible" overstates the limit — it's just inaccessible *to you*. Wording matters.
+2. **Ask the user to share the content.** The fastest format that works is a "save as PDF" of the rendered page. The user prints the page from their browser to PDF, drops it on the Desktop, and tells you the path:
+   > `~/Desktop/openai.pdf`
+3. **Read it with the `Read` tool's PDF mode.** For pages >10 pages, use `pages: "1-N"` to chunk.
+4. **Extract the primary-source quotes verbatim** into `sources.md` as a normal source block — paste the URL the PDF was saved from, mark how it was retrieved.
+5. **Update the deliverable to use primary-source language.** Hedges like "secondary coverage characterizes…" can come out once the primary source is in hand.
+
+This pattern saves multiple research rounds when the public URL works but the fetch tool doesn't.
+
 ## Notes
 
 - `~/.research/` is intentionally a dotfile so it doesn't clutter `ls ~`. The user knows it's there.
